@@ -15,7 +15,10 @@ plot(tree.boston)
 text(tree.boston, pretty=0)
 
 tree.pred = predict(tree.boston, Boston[-train,])
-tree.mse = sum((Boston[-train,'medv'] - tree.pred)^2)/nrow(Boston[-train,])
+tree.mse = mean((Boston[-train,'medv'] - tree.pred)^2)
 tree.mse
+#cv and pruning the tree
+cv.boston = cv.tree(tree.boston)
+plot(cv.boston$size, cv.boston$dev, type='b')
 
-#pruning the tree
+
