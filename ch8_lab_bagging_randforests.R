@@ -19,3 +19,4 @@ rf.pred = predict(rf.boston, newdata=boston.test)
 rf.mse = mean((boston.test.y - rf.pred)^2)
 rf.mse
 importance(rf.boston)
+varImpPlot(rf.boston)

@@ -11,3 +11,9 @@ The importance() function shows us how valuable each predictor is. This is the o
 ![importance output](https://github.com/RudyWilliams/r-code/blob/master/plots/importance_rf.png)
 
 The first column shows the average increase over all the trees for OOB error when a given predictor is excluded from the model. Column two is the average increase in a node's purity resulting from splits on that predictor.
+
+These can also be plotted by passing the random forest object to varImpPlot(), which produces,
+
+![importance plot](https://github.com/RudyWilliams/r-code/blob/master/plots/varImpPlot.png)
+
+We see that rm, lstat, and dis are the three most important predictors.
