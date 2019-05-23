@@ -32,6 +32,7 @@ boost.boston = gbm(medv~., data=Boston[boston.train,], distribution='gaussian',
 ##use 'gaussian' (sq loss) for regression & 'bernoulli' if a binary classification problem
 summary(boost.boston)
 
+
 #partial dependence plots
 plot(boost.boston, i='rm', main='Partial Dependence Plot: "rm"', ylab='medv')
 plot(boost.boston, i='lstat', main='Partial Dependence Plot: "lstat"', ylab='medv')
