@@ -17,3 +17,25 @@ These can also be plotted by passing the random forest object to varImpPlot(), w
 ![importance plot](https://github.com/RudyWilliams/r-code/blob/master/plots/varImpPlot.png)
 
 We see that rm, lstat, and dis are the three most important predictors.
+
+#### Boosting
+The gbm() function out of the gmb package is used to perform boosting on the regression tree model. The summary of the gbm object plots the relative influence and shows a table of each predictor's value.
+
+![rel infl plot](https://github.com/RudyWilliams/r-code/blob/master/plots/rel_influ_plot.png)
+![rel infl table](https://github.com/RudyWilliams/r-code/blob/master/plots/rel_influ_table.png)
+
+We again see that rm and lstat are the most important predictors in the model. The dis predictor is the third most important but it is a distant third.
+
+We could visualize the affect that variables have on the response with other variables removed in *partial dependece plots*. 
+
+![partial dep plot rm](https://github.com/RudyWilliams/r-code/blob/master/plots/pdepPlot_rm.png)
+![partial dep plot lstat](https://github.com/RudyWilliams/r-code/blob/master/plots/pdepPlot_lstat.png)
+
+The more rooms the more expensive we would expect the houses to be. So some sort of direct relationship is expected for the first plot and that is what we get; as the number of rooms increases so does the medv. With the lstat predictor we would expect an indirect relationship. The plot reaffirms the intuition.
+
+The boosted model is vulnerable to overfitting based on the number of trees used. We can plot the test MSE as the boosted model grows.
+
+![boost MSE](https://github.com/RudyWilliams/r-code/blob/master/plots/boostMSE.png)
+![zoomed boost MSE](https://github.com/RudyWilliams/r-code/blob/master/plots/zoomed_boostMSE.png)
+
+The lowest value occurs at n.trees=100.
